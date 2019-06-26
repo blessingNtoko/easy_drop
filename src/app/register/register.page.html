@@ -18,82 +18,170 @@
                 <ion-radio></ion-radio>
             </ion-item>
         </ion-radio-group><br>
-        <h3>Personal Details</h3>
-        <ion-item>
-            <ion-label position="floating">First Name</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Last Name</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Email</ion-label>
-            <ion-input type="email" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Password</ion-label>
-            <ion-input type="password" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Confirm Password</ion-label>
-            <ion-input type="password" required></ion-input>
-        </ion-item><br>
-        <div>
-            <h3>Vehicle Details</h3>
-            <ion-radio-group>
-                <ion-item>
-                    <ion-label>Truck</ion-label>
-                    <ion-radio></ion-radio>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label>Bakkie</ion-label>
-                    <ion-radio></ion-radio>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label>Sedan</ion-label>
-                    <ion-radio></ion-radio>
-                </ion-item>
-            </ion-radio-group><br>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <h3>Personal Details</h3>
             <ion-item>
-                <ion-label position="floating">Make</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item><br>
-            <ion-item>
-                <ion-label position="floating">Series Name</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item><br>
-            <ion-item>
-                <ion-label position="floating">Licence Plate</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item><br>
-            <ion-item>
-                <ion-label position="floating">Vehicle Identification Number(vin)</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item><br>
-            <ion-item>
-                <ion-label position="floating">Vehicle Registration Number</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item><br>
-            <ion-item>
-                <ion-label position="floating">Vehicle Category</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item><br>
-            <ion-item>
-                <ion-label position="floating">Vehicle Status</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item><br>
-            <ion-item>
-                <ion-label position="floating">Gross Vehicle Mass(gvm)</ion-label>
-                <ion-input type="text" required></ion-input>
-            </ion-item><br>
-            <ion-item>
-                <ion-label position="floating">Description</ion-label>
-                <ion-textarea type="text" required></ion-textarea>
+                <ion-label position="floating">First Name</ion-label>
+                <ion-input type="text" formControlName="firstName" required></ion-input>
             </ion-item>
-        </div><br>
-        <ion-button expand="full" color="primary">Register</ion-button>
+            <div *ngFor="let validation of registerFormValidationErrors.firstName">
+                <div class="error-message" *ngIf="registrationForm.get('firstName').hasError(validation.type) &&
+                        (registrationForm.get('firstName').dirty || registrationForm.get('firstName').touched)">
+                    {{ validation.message }}
+                </div>
+            </div><br>
+            <ion-item>
+                <ion-label position="floating">Last Name</ion-label>
+                <ion-input type="text" formControlName="lastName" required></ion-input>
+            </ion-item>
+            <div *ngFor="let validation of registerFormValidationErrors.lastName">
+                <div class="error-message" *ngIf="registrationForm.get('lastName').hasError(validation.type) &&
+                        (registrationForm.get('lastName').dirty || registrationForm.get('lastName').touched)">
+                    {{ validation.message }}
+                </div>
+            </div><br>
+            <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email" required></ion-input>
+            </ion-item>
+            <div *ngFor="let validation of registerFormValidationErrors.email">
+                <div class="error-message" *ngIf="registrationForm.get('email').hasError(validation.type) &&
+                        (registrationForm.get('email').dirty || registrationForm.get('email').touched)">
+                    {{ validation.message }}
+                </div>
+            </div><br>
+            <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" formControlName="password" required></ion-input>
+            </ion-item>
+            <div *ngFor="let validation of registerFormValidationErrors.password">
+                <div class="error-message" *ngIf="registrationForm.get('password').hasError(validation.type) &&
+                        (registrationForm.get('password').dirty || registrationForm.get('password').touched)">
+                    {{ validation.message }}
+                </div>
+            </div><br>
+            <ion-item>
+                <ion-label position="floating">Confirm Password</ion-label>
+                <ion-input type="password" formControlName="confirmPassword" required></ion-input>
+            </ion-item>
+            <div *ngFor="let validation of registerFormValidationErrors.confirmPassword">
+                <div class="error-message" *ngIf="registrationForm.get('confirmPassword').hasError(validation.type) &&
+                        (registrationForm.get('confirmPassword').dirty || registrationForm.get('confirmPassword').touched)">
+                    {{ validation.message }}
+                </div>
+            </div><br>
+            <div>
+                <h3>Vehicle Details</h3>
+                <ion-radio-group>
+                    <ion-item>
+                        <ion-label>Truck</ion-label>
+                        <ion-radio></ion-radio>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Bakkie</ion-label>
+                        <ion-radio></ion-radio>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Sedan</ion-label>
+                        <ion-radio></ion-radio>
+                    </ion-item>
+                </ion-radio-group><br>
+                <div formGroupName="vehicleDetails">
+                    <ion-item>
+                        <ion-label position="floating">Make</ion-label>
+                        <ion-input type="text" formControlName="make" required></ion-input>
+                    </ion-item>
+                    <div *ngFor="let validation of registerFormValidationErrors.make">
+                        <div class="error-message" *ngIf="registrationForm.get('make').hasError(validation.type) &&
+                            (registrationForm.get('make').dirty || registrationForm.get('make').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </div><br>
+                    <ion-item>
+                        <ion-label position="floating">Series Name</ion-label>
+                        <ion-input type="text" formControlName="seriesName" required></ion-input>
+                    </ion-item>
+                    <div *ngFor="let validation of registerFormValidationErrors.seriesName">
+                        <div class="error-message" *ngIf="registrationForm.get('seriesName').hasError(validation.type) &&
+                            (registrationForm.get('seriesName').dirty || registrationForm.get('seriesName').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </div><br>
+                    <ion-item>
+                        <ion-label position="floating">Licence Plate</ion-label>
+                        <ion-input type="text" formControlName="licencePlate" required></ion-input>
+                    </ion-item>
+                    <div *ngFor="let validation of registerFormValidationErrors.licencePlate">
+                        <div class="error-message" *ngIf="registrationForm.get('licencePlate').hasError(validation.type) &&
+                            (registrationForm.get('licencePlate').dirty || registrationForm.get('licencePlate').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </div><br>
+                    <ion-item>
+                        <ion-label position="floating">Vehicle Identification Number(vin)</ion-label>
+                        <ion-input type="text" formControlName="vehIdentificationNumber" required></ion-input>
+                    </ion-item>
+                    <div *ngFor="let validation of registerFormValidationErrors.vehIdentificationNumber">
+                        <div class="error-message" *ngIf="registrationForm.get('vehIdentificationNumber').hasError(validation.type) &&
+                            (registrationForm.get('vehIdentificationNumber').dirty || registrationForm.get('vehIdentificationNumber').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </div><br>
+                    <ion-item>
+                        <ion-label position="floating">Vehicle Registration Number</ion-label>
+                        <ion-input type="text" formControlName="vehRegNum" required></ion-input>
+                    </ion-item>
+                    <div *ngFor="let validation of registerFormValidationErrors.vehRegNum">
+                        <div class="error-message" *ngIf="registrationForm.get('vehRegNum').hasError(validation.type) &&
+                            (registrationForm.get('vehRegNum').dirty || registrationForm.get('vehRegNum').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </div><br>
+                    <ion-item>
+                        <ion-label position="floating">Vehicle Category</ion-label>
+                        <ion-input type="text" formControlName="vehCategory" required></ion-input>
+                    </ion-item>
+                    <div *ngFor="let validation of registerFormValidationErrors.vehCategory">
+                        <div class="error-message" *ngIf="registrationForm.get('vehCategory').hasError(validation.type) &&
+                            (registrationForm.get('vehCategory').dirty || registrationForm.get('vehCategory').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </div><br>
+                    <ion-item>
+                        <ion-label position="floating">Vehicle Status</ion-label>
+                        <ion-input type="text" formControlName="vehStatus" required></ion-input>
+                    </ion-item>
+                    <div *ngFor="let validation of registerFormValidationErrors.vehStatus">
+                        <div class="error-message" *ngIf="registrationForm.get('vehStatus').hasError(validation.type) &&
+                            (registrationForm.get('vehStatus').dirty || registrationForm.get('vehStatus').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </div><br>
+                    <ion-item>
+                        <ion-label position="floating">Gross Vehicle Mass(gvm)</ion-label>
+                        <ion-input type="text" formControlName="grossVehMass" required></ion-input>
+                    </ion-item>
+                    <div *ngFor="let validation of registerFormValidationErrors.grossVehMass">
+                        <div class="error-message" *ngIf="registrationForm.get('grossVehMass').hasError(validation.type) &&
+                            (registrationForm.get('grossVehMass').dirty || registrationForm.get('grossVehMass').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </div><br>
+                    <ion-item>
+                        <ion-label position="floating">Description</ion-label>
+                        <ion-textarea type="text" formControlName="description" required></ion-textarea>
+                    </ion-item>
+                    <div *ngFor="let validation of registerFormValidationErrors.description">
+                        <div class="error-message" *ngIf="registrationForm.get('description').hasError(validation.type) &&
+                            (registrationForm.get('description').dirty || registrationForm.get('description').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <ion-button expand="full" color="primary">Register</ion-button>
+        </form>
     </ion-card>
 </ion-content>

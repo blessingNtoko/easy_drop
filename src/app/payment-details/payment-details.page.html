@@ -6,76 +6,78 @@
 
 <ion-content>
     <ion-card>
-        <h3>Card Type</h3>
-        <ion-radio-group>
-            <ion-item>
-                <ion-label>Visa</ion-label>
-                <ion-radio required></ion-radio>
-            </ion-item>
+        <form [formGroup]="paymentDetailsForm" (ngSubmit)="onSubmit()">
+            <h3>Card Type</h3>
+            <ion-radio-group>
+                <ion-item>
+                    <ion-label>Visa</ion-label>
+                    <ion-radio required></ion-radio>
+                </ion-item>
 
+                <ion-item>
+                    <ion-label>Mastercard</ion-label>
+                    <ion-radio required></ion-radio>
+                </ion-item>
+            </ion-radio-group><br>
+            <h3>Payment Details</h3>
             <ion-item>
-                <ion-label>Mastercard</ion-label>
-                <ion-radio required></ion-radio>
-            </ion-item>
-        </ion-radio-group><br>
-        <h3>Payment Details</h3>
-        <ion-item>
-            <ion-label position="floating">Card Number</ion-label>
-            <ion-input type="number" required></ion-input>
-        </ion-item><br> Expiration:
-        <ion-item>
-            <ion-label position="floating">Year</ion-label>
-            <ion-input type="number" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Month</ion-label>
-            <ion-input type="number" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Security Code</ion-label>
-            <ion-input type="number" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Zip Code</ion-label>
-            <ion-input type="number" required></ion-input>
-        </ion-item><br>
-        <h3>Billing Address Info</h3>
-        <ion-item>
-            <ion-label position="floating">First Name</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Last Name</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br> Address:
-        <ion-item>
-            <ion-label position="floating">Country</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">State/Province</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">City</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Suburb</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Street</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br> Contact Info:
-        <ion-item>
-            <ion-label position="floating">Tel:</ion-label>
-            <ion-input type="number" required></ion-input>
-        </ion-item><br>
-        <ion-item>
-            <ion-label position="floating">Cell:</ion-label>
-            <ion-input type="text" required></ion-input>
-        </ion-item><br>
-        <ion-button expand="full" color="primary">Register</ion-button>
+                <ion-label position="floating">Card Number</ion-label>
+                <ion-input type="number" required></ion-input>
+            </ion-item><br> Expiration:
+            <ion-item>
+                <ion-label position="floating">Year</ion-label>
+                <ion-input type="number" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Month</ion-label>
+                <ion-input type="number" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Security Code</ion-label>
+                <ion-input type="number" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Zip Code</ion-label>
+                <ion-input type="number" required></ion-input>
+            </ion-item><br>
+            <h3>Billing Address Info</h3>
+            <ion-item>
+                <ion-label position="floating">First Name</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Last Name</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br> Address:
+            <ion-item>
+                <ion-label position="floating">Country</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">State/Province</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">City</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Suburb</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Street</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br> Contact Info:
+            <ion-item>
+                <ion-label position="floating">Tel:</ion-label>
+                <ion-input type="number" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Cell:</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-button expand="full" color="primary">Register</ion-button>
+        </form>
     </ion-card>
 </ion-content>

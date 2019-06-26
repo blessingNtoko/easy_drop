@@ -1,9 +1,99 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Register</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-card>
+        <h3>Which are you?</h3>
+        <ion-radio-group>
+            <ion-item>
+                <ion-label>Driver</ion-label>
+                <ion-radio></ion-radio>
+            </ion-item>
 
+            <ion-item>
+                <ion-label>Driven</ion-label>
+                <ion-radio></ion-radio>
+            </ion-item>
+        </ion-radio-group><br>
+        <h3>Personal Details</h3>
+        <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input type="text" required></ion-input>
+        </ion-item><br>
+        <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input type="text" required></ion-input>
+        </ion-item><br>
+        <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" required></ion-input>
+        </ion-item><br>
+        <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" required></ion-input>
+        </ion-item><br>
+        <ion-item>
+            <ion-label position="floating">Confirm Password</ion-label>
+            <ion-input type="password" required></ion-input>
+        </ion-item><br>
+        <div>
+            <h3>Vehicle Details</h3>
+            <ion-radio-group>
+                <ion-item>
+                    <ion-label>Truck</ion-label>
+                    <ion-radio></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Bakkie</ion-label>
+                    <ion-radio></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Sedan</ion-label>
+                    <ion-radio></ion-radio>
+                </ion-item>
+            </ion-radio-group><br>
+            <ion-item>
+                <ion-label position="floating">Make</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Series Name</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Licence Plate</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Vehicle Identification Number(vin)</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Vehicle Registration Number</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Vehicle Category</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Vehicle Status</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Gross Vehicle Mass(gvm)</ion-label>
+                <ion-input type="text" required></ion-input>
+            </ion-item><br>
+            <ion-item>
+                <ion-label position="floating">Description</ion-label>
+                <ion-textarea type="text" required></ion-textarea>
+            </ion-item>
+        </div><br>
+        <ion-button expand="full" color="primary">Register</ion-button>
+    </ion-card>
 </ion-content>
